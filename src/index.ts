@@ -1,3 +1,5 @@
+#!/usr/bin/env ts-node
+
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { GraphQLClient } from 'graphql-request';
