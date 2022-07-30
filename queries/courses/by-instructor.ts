@@ -45,3 +45,5 @@ const coursesByInstructor = gql`
 		}
 	}
 `;
+
+export default coursesByInstructor;

@@ -52,3 +52,5 @@ const coursesByTime = gql`
 		}
 	}
 `;
+
+export default coursesByTime;

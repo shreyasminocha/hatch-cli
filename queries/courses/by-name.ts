@@ -47,3 +47,5 @@ const coursesByName = gql`
 		}
 	}
 `;
+
+export default coursesByName;

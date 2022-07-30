@@ -44,3 +44,5 @@ const coursesByDay = gql`
 		}
 	}
 `;
+
+export default coursesByDay;
