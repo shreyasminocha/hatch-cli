@@ -4,6 +4,7 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { GraphQLClient } from 'graphql-request';
 import search from './commands/search';
+import evals from './commands/evals';
 
 const ENDPOINT =
 	'https://api-develop-dot-ultrascheduler.uc.r.appspot.com/graphql';
@@ -45,6 +46,16 @@ yargs(hideBin(process.argv))
 		'Get information about a course',
 		() => {},
 		() => {}
+	)
+	.command(
+		'evals <department> <number>',
+		'Get course evaluations',
+		(yargs) => {
+			return yargs
+				.positional('department', { type: 'string' })
+				.positional('number', { type: 'number' });
+		},
+		(argv) => evals(argv, client)
 	)
 	.command(
 		'schedule [semester] [subcommand]',
