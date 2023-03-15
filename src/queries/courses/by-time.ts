@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 
-const coursesByTime = gql`
+const COURSES_BY_TIME = gql`
 	query GetTimeIntervalCourses(
 		$startTime: String!
 		$endTime: String!
@@ -53,4 +53,4 @@ const coursesByTime = gql`
 	}
 `;
 
-export default coursesByTime;
+export default COURSES_BY_TIME;

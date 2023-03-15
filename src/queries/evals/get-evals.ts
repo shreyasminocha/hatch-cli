@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 
-const getEvals = gql`
+const GET_EVALS = gql`
 	query getEvaluationChartByCourse($course: String!) {
 		getEvaluationChartByCourse(course: $course) {
 			courseName
@@ -96,4 +96,4 @@ const getEvals = gql`
 	}
 `;
 
-export default getEvals;
+export default GET_EVALS;

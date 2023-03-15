@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 
-const coursesByName = gql`
+const COURSES_BY_NAME = gql`
 	query GetCourseByName($inputName: String!, $term: Float!) {
 		courseMany(filter: { courseNameRegExp: $inputName }, sort: COURSE_NUM_ASC) {
 			_id
@@ -48,4 +48,4 @@ const coursesByName = gql`
 	}
 `;
 
-export default coursesByName;
+export default COURSES_BY_NAME;

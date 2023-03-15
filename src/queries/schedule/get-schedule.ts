@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 
-const getUserSchedule = gql`
+const GET_USER_SCHEDULE = gql`
 	query GetUserSchedule($term: String!) {
 		scheduleOne(filter: { term: $term }) {
 			_id
@@ -52,4 +52,4 @@ const getUserSchedule = gql`
 	}
 `;
 
-export default getUserSchedule;
+export default GET_USER_SCHEDULE;

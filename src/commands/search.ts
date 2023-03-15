@@ -1,6 +1,6 @@
-import coursesByName from '../queries/courses/by-name';
-import coursesByDepartment from '../queries/courses/by-department';
-import coursesByDistribution from '../queries/courses/by-distribution';
+import COURSES_BY_NAME from '../queries/courses/by-name';
+import COURSES_BY_DEPARTMENT from '../queries/courses/by-department';
+import COURSES_BY_DISTRIBUTION from '../queries/courses/by-distribution';
 
 async function search(argv, api) {
 	try {
@@ -8,15 +8,15 @@ async function search(argv, api) {
 		let vars: any = {};
 
 		if (argv.name) {
-			query = coursesByName;
+			query = COURSES_BY_NAME;
 			vars = { inputName: argv.name };
 		} else if (argv.department) {
-			query = coursesByDepartment;
+			query = COURSES_BY_DEPARTMENT;
 			vars = {
 				subject: argv.department.toUpperCase(),
 			};
 		} else if (argv.distribution) {
-			query = coursesByDistribution;
+			query = COURSES_BY_DISTRIBUTION;
 			vars = {
 				distribution: `Distribution ${'I'.repeat(argv.distribution)}`,
 			};

@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 
-const coursesByDay = gql`
+const COURSES_BY_DAY = gql`
 	query GetDaysCourses($days: [String!], $term: Float!) {
 		sessionByDay(days: $days, term: $term) {
 			course {
@@ -45,4 +45,4 @@ const coursesByDay = gql`
 	}
 `;
 
-export default coursesByDay;
+export default COURSES_BY_DAY;

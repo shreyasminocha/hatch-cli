@@ -5,7 +5,7 @@ import { hideBin } from 'yargs/helpers';
 import { GraphQLClient } from 'graphql-request';
 import search from './commands/search';
 import evals from './commands/evals';
-import getSchedule from './commands/schedule';
+import schedule from './commands/schedule';
 
 const ENDPOINT =
 	'https://api-develop-dot-ultrascheduler.uc.r.appspot.com/graphql';
@@ -57,10 +57,21 @@ yargs(hideBin(process.argv))
 		(argv) => evals(argv, client)
 	)
 	.command(
-		'schedule [semester] [subcommand]',
+		'schedule [subcommand]',
 		'View and edit your schedule',
-		(yargs) => yargs,
-		(argv) => getSchedule(argv, client)
+		(yargs) =>
+			yargs.positional('subcommand', {
+				type: 'string',
+				choices: [
+					'list',
+					'view',
+					'add-course',
+					'toggle-course',
+					'remove-course',
+				],
+				default: 'list',
+			}),
+		(argv) => schedule(argv, client)
 	)
 	.command(
 		'plan [subcommand]',

@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 
-const coursesByInstructor = gql`
+const COURSES_BY_INSTRUCTOR = gql`
 	query InstructorQuery(
 		$firstName: String!
 		$lastName: String!
@@ -46,4 +46,4 @@ const coursesByInstructor = gql`
 	}
 `;
 
-export default coursesByInstructor;
+export default COURSES_BY_INSTRUCTOR;

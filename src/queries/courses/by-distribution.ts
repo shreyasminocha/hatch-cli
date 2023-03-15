@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 
-const coursesByDistribution = gql`
+const COURSES_BY_DISTRIBUTION = gql`
 	query CourseQuery($distribution: String!, $term: Float!) {
 		courseMany(
 			filter: { distribution: $distribution }
@@ -52,4 +52,4 @@ const coursesByDistribution = gql`
 	}
 `;
 
-export default coursesByDistribution;
+export default COURSES_BY_DISTRIBUTION;

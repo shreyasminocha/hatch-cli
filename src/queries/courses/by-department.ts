@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
 
-const coursesByDepartment = gql`
+const COURSES_BY_DEPARTMENT = gql`
 	query GetDeptCourses($subject: String!, $term: Float!) {
 		courseMany(filter: { subject: $subject }, sort: COURSE_NUM_ASC) {
 			_id
@@ -48,4 +48,4 @@ const coursesByDepartment = gql`
 	}
 `;
 
-export default coursesByDepartment;
+export default COURSES_BY_DEPARTMENT;

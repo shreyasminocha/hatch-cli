@@ -1,9 +1,8 @@
-import coursesByName from '../queries/courses/by-name';
-import getEvals from '../queries/evals/get-evals';
+import GET_EVALS from '../queries/evals/get-evals';
 
 async function evals(argv, api) {
 	try {
-		let query = getEvals;
+		let query = GET_EVALS;
 		let vars: any = {
 			course: `${argv.department.toUpperCase()} ${argv.number}`,
 		};
