@@ -4,6 +4,7 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { GraphQLClient } from 'graphql-request';
 import search from './commands/search';
+import course from './commands/course';
 import evals from './commands/evals';
 import schedule from './commands/schedule';
 
@@ -44,8 +45,11 @@ yargs(hideBin(process.argv))
 	.command(
 		'course <department> <number>',
 		'Get information about a course',
-		() => {},
-		() => {}
+		(yargs) =>
+			yargs
+				.positional('department', { type: 'string' })
+				.positional('number', { type: 'number' }),
+		(argv) => course(argv, client)
 	)
 	.command(
 		'evals <department> <number>',
