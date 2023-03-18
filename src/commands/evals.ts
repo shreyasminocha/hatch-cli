@@ -11,17 +11,32 @@ async function evals(argv, api) {
 			query,
 			Object.assign({ term: 202320 }, vars)
 		);
-		const courses = data.getEvaluationChartByCourse ?? [];
+		const evaluations = data.getEvaluationChartByCourse ?? [];
 
-		if (courses.length > 0) {
-			console.log(courses[0]);
+		if (evaluations.length > 0) {
+			console.log(formatEvals(evaluations[0]));
 		} else {
-			console.log(courses);
+			console.log(evaluations);
 		}
 	} catch (error) {
 		console.error(JSON.stringify(error, null, 2));
 		process.exit(1);
 	}
+}
+
+function formatEvals(evals) {
+	// TODO: show more details. fancy charts perhaps?
+	return `${evals.courseName} ${evals.term} (${evals.enrolled_amount} enrolled)
+
+Organization:\t${evals.organization.class_mean}
+Assignments:\t${evals.assignments.class_mean}
+Challenge:\t${evals.challenge.class_mean}
+Workload:\t${evals.workload.class_mean}
+Overall:\t${evals.overall.class_mean}
+
+Comments:
+
+${evals.comments.map((comment) => `> ${comment.text}`).join('\n\n')}`;
 }
 
 export default evals;

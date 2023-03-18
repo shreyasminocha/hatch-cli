@@ -28,17 +28,15 @@ async function search(argv, api) {
 		);
 		const courses = data.courseMany ?? [];
 
-		console.log(
-			courses.map((course) => [
-				course.subject,
-				course.courseNum,
-				course.longTitle,
-			])
-		);
+		console.log(courses.map(formatCourse).join('\n'));
 	} catch (error) {
 		console.error(JSON.stringify(error, null, 2));
 		process.exit(1);
 	}
+}
+
+function formatCourse(course) {
+	return `${course.subject} ${course.courseNum}: ${course.longTitle}`;
 }
 
 export default search;
